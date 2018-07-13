@@ -4,16 +4,16 @@ import BookshelfChangerMenu from './BookshelfChangerMenu'
 
 class Book extends React.Component {
 	static propTypes = {
-		books: PropTypes.array.isRequired,         // All the books!
+		books: PropTypes.array.isRequired,         // Collection of books contained in one of the bookshelves
         book: PropTypes.object.isRequired,         // Contains data of a book 
-        onBookMove: PropTypes.func.isRequired         // The function to 'move' a book to another shelf  
+        onBookMove: PropTypes.func.isRequired         // Function to 'move' a book to another shelf  
  	}
 
 	render() {
       	// Destructuring props..
         // https://medium.freecodecamp.org/the-basics-of-destructuring-props-in-react-a196696f5477
       	const {books, book, moveBook} = this.props;     
-    		 
+    		  
       	return (
       		<li>
              	<div className="book">

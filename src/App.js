@@ -1,30 +1,41 @@
+/*
+*  Starter Code for the React MyReads Project
+*  https://github.com/udacity/reactnd-project-myreads-starter
+*/
+
 import React from 'react'
 import {Route} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import BookShelf from './BookShelf'
 import './App.css'
 
+
+
+
 class BooksApp extends React.Component {
 	state = {
-    	books: []   // state: list of book objects
+    	books: []   // Component's state: collection of book objects 
+                    // currently in the bookshelves  
   	}
 
-    // Feching data
+    // Returns the books currently 
+    // in the bookshelves  
   	componentDidMount() {
     	BooksAPI.getAll().then((books) => {
       		this.setState({books});
     	})
   	} 
-
-	// Moves the book to its destination bookshelf
+ 
+	// Moves the (new) book to its destination 
+    // bookshelf
    	moveBook = ( destinationBookshelf, book ) => {
       
       	// Does something    
     }
  
   	render() { 
-      
-        // The three possible bookshelves to which books can belong.
+       
+        // Represents the possible bookshelves to which books can belong.
 		const bookShelves = [ { shelfID: 'currentlyReading', bookshelfName: 'Currently Reading' },
 							  { shelfID: 'wantToRead', bookshelfName: 'Want to Read' },
             	              { shelfID: 'read', bookshelfName: 'Read' } ];
@@ -45,7 +56,7 @@ class BooksApp extends React.Component {
              				{    // Each shelf...
                					 bookShelves.map((shelfName, index) => {
           
-                                    // ...contains different books (look at the 'shelf' attribute in the 'book' object)  
+                                    // ...contains several books (look at the 'shelf' attribute in the 'book' object)  
                   					const booksInTheShelf = this.state.books.filter(book => book.shelf === shelfName.shelfID) 
                   						return ( 
                                             // 'BookShelf' component 
