@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import BookshelfChangerMenu from './BookshelfChangerMenu'
 
 class Book extends React.Component {
 	static propTypes = {
@@ -17,7 +18,13 @@ class Book extends React.Component {
       		<li>
              	<div className="book">
              		<div className="book-top">
-             			<div className="book-cover"></div>   
+             			<div className="book-cover">
+          					<BookshelfChangerMenu
+          						books={books}     
+                                book={book}
+                                onBookMove={moveBook}
+                         	/>
+          				</div>   
              		</div>  
              		<div className="book-title">{book.title}</div>
              		<div className="book-authors">{book.authors}</div>
