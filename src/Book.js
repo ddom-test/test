@@ -5,7 +5,7 @@ class Book extends React.Component {
 	static propTypes = {
 		books: PropTypes.array.isRequired,         // All the books!
         book: PropTypes.object.isRequired,         // Contains data of a book 
-        moveBook_to: PropTypes.func.isRequired         // The function to 'move' a book to another shelf  
+        onBookMove: PropTypes.func.isRequired         // The function to 'move' a book to another shelf  
  	}
 
 	render() {
@@ -17,8 +17,7 @@ class Book extends React.Component {
       		<li>
              	<div className="book">
              		<div className="book-top">
-             			<div className="book-cover"></div>             			
-             			
+             			<div className="book-cover"></div>   
              		</div>  
              		<div className="book-title">{book.title}</div>
              		<div className="book-authors">{book.authors}</div>
