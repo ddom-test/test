@@ -11,11 +11,14 @@ class BookshelfChangerMenu extends React.Component {
 	render() {
       	// Destructuring props..
         // https://medium.freecodecamp.org/the-basics-of-destructuring-props-in-react-a196696f5477
-      	const {books, book, moveBook} = this.props;     		
-    		 
+      	const {books, book, onBookMove} = this.props;     
+
+		let currentBookShelf = 'none';
+		if (book.shelf) currentBookShelf = book.shelf;
+            		 
       	return (
         	<div className="book-shelf-changer">
-         		 <select>
+         		 <select onChange={(event) => onBookMove(event.target.value, book)} defaultValue={ currentBookShelf }> 
                  	<option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>

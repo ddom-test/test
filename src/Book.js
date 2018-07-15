@@ -12,8 +12,8 @@ class Book extends React.Component {
 	render() {
       	// Destructuring props..
         // https://medium.freecodecamp.org/the-basics-of-destructuring-props-in-react-a196696f5477
-      	const {books, book, moveBook} = this.props;     
-    		  
+      	const {books, book, onBookMove} = this.props;     
+      
       	return (
       		<li>
              	<div className="book">
@@ -22,7 +22,7 @@ class Book extends React.Component {
           					<BookshelfChangerMenu
           						books={books}     
                                 book={book}
-                                onBookMove={moveBook}
+                                onBookMove={onBookMove}
                          	/>
           				</div>   
              		</div>  

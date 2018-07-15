@@ -29,8 +29,29 @@ class BooksApp extends React.Component {
 	// Moves the (new) book to its destination 
     // bookshelf
    	moveBook = ( destinationBookshelf, book ) => {
-      
-      	// Does something    
+       
+      BooksAPI.update(book, destinationBookshelf).then(function (response) {
+         	
+         	/*  
+             * 'updatedBooksList' is a copy of the 'state.books' collection of books, except
+             * for the one moved to the new bookshelf
+             *
+             * or: let updatedBooksList = this.state.books.filter ( bookItem => bookItem.id !== book.id);  
+             * (note: the bind method is not necessary with arrow functions) 
+             */
+        	let updatedBooksList = this.state.books.filter ( function (bookItem) {
+              
+            	return bookItem.id !== book.id;
+            });
+        
+            // Adding (again) the book to the collection, but with 
+          	// an updated 'shelf' attribute!
+        	updatedBooksList.push(book.shelf = destinationBookshelf); 
+        
+         	// Updating the component state 
+      		this.setState({ books: updatedBooksList });         
+       
+      }.bind(this));    
     }
  
   	render() { 

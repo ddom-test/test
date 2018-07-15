@@ -13,7 +13,7 @@ class BookShelf extends React.Component {
       	// Destructuring props..
         // https://medium.freecodecamp.org/the-basics-of-destructuring-props-in-react-a196696f5477
       	const {books, shelfName, onBookMove} = this.props;     
- 
+
       	return (
      		<div className="bookshelf">
              	<h2 className="bookshelf-title">{shelfName}</h2>
